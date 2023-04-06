@@ -1,30 +1,26 @@
 import Search from './components/search/Search';
 import Forcast from './components/forcast/Forcast';
-import Current from './components/current/Current';
 import './App.css';
-import { useState } from 'react';
+import {useState } from 'react';
+import CurrentWeather from './components/current-weather/CurrentWeather';
+import { OPEN_WEATHER_BASE_URL } from "./api/openWeatherApi.js";
 
 const App = () => {
 
-  const [searchValue, setSearchValue] = useState(null);
-
-  let lat = 0;
-  let lon = 0;
+  const [weatherData, setWeatherData] = useState(null);
 
   function handleOnSearchChange(searchData){
-    setSearchValue(searchData);
+    const [lat, lon] = searchData.value.split(" ");
+    fetch(`${OPEN_WEATHER_BASE_URL}&lat=${lat}&lon=${lon}`)
+        .then((response) => response.json())
+        .then((response) => setWeatherData(response))
+        .catch((error) => console.log(error));
   }
-
-  if(searchValue){
-    lat = searchValue.value.split(" ")[0];
-    lon = searchValue.value.split(" ")[1];
-  }
-  
 
   return (
     <div className='container'>  
       <Search onSearchChange={handleOnSearchChange} />
-      <Current lat={lat} lon={lon} />
+      {weatherData && <CurrentWeather weatherData={weatherData} />}
       <Forcast />
     </div>
   );
