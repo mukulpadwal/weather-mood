@@ -1,0 +1,35 @@
+.main-item-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin: 5px auto;
+    border-radius: 10px;
+    padding: 5px;
+    height: fit-content;
+}
+
+.left-item {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+}
+
+.left-item img,
+.left-item p {
+    margin: 0 2px 0 2px;
+}
+
+.left-item-icon {
+    width: 50px;
+}
+
+.right-item {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+}
+
+.right-item p {
+    margin: 0 2px 0 2px;
+}
+

@@ -3,7 +3,7 @@ import "./CurrentWeather.css";
 
 const CurrentWeather = ({ weatherData }) => {
 
-    // console.log(weatherData.weather);
+    console.log(weatherData);
     const output = cbw({
         temperature: weatherData.main.temp - 273.15,
         pop: weatherData.main.humidity/100,
@@ -18,7 +18,7 @@ const CurrentWeather = ({ weatherData }) => {
             <div className="weather-box">
                 <div className="top">
                     <div>
-                        <p className="city">{weatherData.name+" "+weatherData.sys.country}</p>
+                        <p className="city">{weatherData.city}</p>
                         <p className="weather-description">{weatherData.weather[0].description}</p>
                     </div>
                     <img className="weather-icon" alt="weather" src={`icons/${weatherData.weather[0].icon}.png`} />
