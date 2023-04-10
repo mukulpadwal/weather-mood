@@ -3,7 +3,7 @@ import "./CurrentWeather.css";
 
 const CurrentWeather = ({ weatherData }) => {
 
-    console.log(weatherData);
+    // console.log(weatherData);
     const output = cbw({
         temperature: weatherData.main.temp - 273.15,
         pop: weatherData.main.humidity/100,
@@ -11,7 +11,7 @@ const CurrentWeather = ({ weatherData }) => {
         windGust: weatherData.wind.speed,
     });
 
-    console.log(output);
+    // console.log(output);
 
     return (
         <div>

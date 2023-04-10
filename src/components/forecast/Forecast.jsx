@@ -4,6 +4,7 @@ import "./Forecast.css";
 const Forecast = ({ forecastData }) => {
 
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const newWeekday = weekday.slice((new Date()).getDay() + 1, weekday.length).concat(weekday.slice(0, (new Date()).getDay() + 1))
 
     return (
     <>
@@ -16,21 +17,40 @@ const Forecast = ({ forecastData }) => {
                         <AccordionItemHeading>
                             <AccordionItemButton>
                                 <div className="main-item-div">
-                                    <div className="left-item">
-                                        <img className="left-item-icon" alt="weather-icon" src={`icons/${forecast.weather[0].icon}.png`}/>
-                                        <p>{weekday[(new Date()).getDay()]}</p>
-                                    </div>
-                                    <div className="right-item">
-                                        <p>{forecast.weather[0].description}</p>
-                                        <p>{Math.round(forecast.main.temp - 273.15)}°C</p>
-                                    </div>
+                                    <img className="weather-icon-small" alt="weather-icon" src={`icons/${forecast.weather[0].icon}.png`}/>
+                                    <label className="day">{newWeekday[idx]}</label>
+                                    <label className="desc">{forecast.weather[0].description}</label>
+                                    <label className="temp">{Math.round(forecast.main.temp_max - 273.15)}°C / {Math.round(forecast.main.temp_min - 273.15)}°C</label>
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                icon
-                            </p>
+                            <div className="item-panel-grid">
+                                <div className="grid-item">
+                                    <label>Pressure</label>
+                                    <label>{forecast.main.pressure}hPa</label>
+                                </div>
+                                <div className="grid-item">
+                                    <label>Humidity</label>
+                                    <label>{forecast.main.humidity}%</label>
+                                </div>
+                                <div className="grid-item">
+                                    <label>Clouds</label>
+                                    <label>{forecast.clouds.all}</label>
+                                </div>
+                                <div className="grid-item">
+                                    <label>Wind Speed</label>
+                                    <label>{forecast.wind.speed}m/s</label>
+                                </div>
+                                <div className="grid-item">
+                                    <label>Sea Level</label>
+                                    <label>{forecast.main.sea_level}m</label>
+                                </div>
+                                <div className="grid-item">
+                                    <label>Feels Like</label>
+                                    <label>{Math.round(forecast.main.feels_like - 273.15)}°C</label>
+                                </div>
+                            </div>
                         </AccordionItemPanel>
                     </AccordionItem>
                 )
