@@ -1,6 +1,8 @@
 .title {
     font-size: 23px;
     font-weight: 700;
+    margin-top: 20px; 
+    margin-bottom: 20px
 }
 
 .main-item-div {

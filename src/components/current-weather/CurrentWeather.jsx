@@ -6,15 +6,18 @@ const CurrentWeather = ({ weatherData }) => {
     // console.log(weatherData);
     const output = cbw({
         temperature: weatherData.main.temp - 273.15,
-        pop: weatherData.main.humidity/100,
+        pop: weatherData.main.humidity / 100,
         description: weatherData.weather[0].description,
         windGust: weatherData.wind.speed,
     });
 
-    // console.log(output);
+    const { upperbody, lowerbody, shoes, misc } = output;
+
+    console.log([lowerbody]);
+    console.log(typeof(lowerbody));
 
     return (
-        <div>
+        <div className="curr-container">
             <div className="weather-box">
                 <div className="top">
                     <div>
@@ -50,6 +53,30 @@ const CurrentWeather = ({ weatherData }) => {
             </div>
 
             <div className="outfit-box">
+                <h2>Outfit Recommendation :</h2>
+                <label><strong>UpperBody : </strong> {[upperbody].map((up) => {
+                    return (
+                        <span>{" "+up}</span>
+                    )
+                })}</label>
+                <br />
+                <label><strong>LowerBody :</strong> {[lowerbody].map((low) => {
+                    return (
+                        <span>{low + " "}</span>
+                    )
+                })}</label>
+                <br />
+                <label><strong>Shoes : </strong> {[shoes].map((shoe) => {
+                    return (
+                        <span>{shoe + " "}</span>
+                    )
+                })}</label>
+                <br />
+                <label><strong>Misc : </strong> {[misc].map((m) => {
+                    return (
+                        <span>{m + " "}</span>
+                    )
+                })}</label>
 
             </div>
         </div>
