@@ -14,7 +14,7 @@ const CurrentWeather = ({ weatherData }) => {
     const { upperbody, lowerbody, shoes, misc } = output;
 
     console.log([lowerbody]);
-    console.log(typeof(lowerbody));
+    console.log(typeof (lowerbody));
 
     return (
         <div className="curr-container">
@@ -56,7 +56,7 @@ const CurrentWeather = ({ weatherData }) => {
                 <h2>Outfit Recommendation :</h2>
                 <label><strong>UpperBody : </strong> {[upperbody].map((up) => {
                     return (
-                        <span>{" "+up}</span>
+                        <span>{" " + up}</span>
                     )
                 })}</label>
                 <br />
