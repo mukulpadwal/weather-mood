@@ -1,4 +1,11 @@
-# WeatherMood
+# WeatherMood(https://weather-mood.vercel.app/)
+
+#### "Weather Mood" is a modern and responsive weather application built with React that provides accurate weather information and forecasts to users. It leverages two APIs - OpenWeatherMap and GeoDB Cities - to fetch real-time weather and location data, respectively.
+#### With "Weather Mood", users can easily search for and track the weather in their current location or any location around the world. The app provides detailed weather information such as temperature, humidity, wind speed, and precipitation levels. It also includes a 7-day forecast and displays weather data in an intuitive and visually appealing manner.
+#### In addition to providing weather information, Weather Mood also has a unique feature that recommends an outfit based on the current weather. This feature takes into account the temperature, wind, and humidity to provide a suggestion for an outfit that would be comfortable and appropriate for the weather conditions.
+#### "Weather Mood" is deployed using Vercel, ensuring fast and reliable performance for users. It's built with a clean and modular codebase, making it easy to maintain and extend with new features.
+
+Try out "Weather Mood" today and stay up-to-date on the weather in your area!
 
 # Getting Started with Create React App
 
