@@ -60,17 +60,20 @@ const CurrentWeather = ({ weatherData }) => {
                     )
                 })}</label>
                 <br />
+                <br />
                 <label><strong>LowerBody :</strong> {[lowerbody].map((low) => {
                     return (
                         <span>{low + " "}</span>
                     )
                 })}</label>
                 <br />
+                <br />
                 <label><strong>Shoes : </strong> {[shoes].map((shoe) => {
                     return (
                         <span>{shoe + " "}</span>
                     )
                 })}</label>
+                <br />
                 <br />
                 <label><strong>Misc : </strong> {[misc].map((m) => {
                     return (
