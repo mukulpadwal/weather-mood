@@ -1,15 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "theme_color": "#83709e",
+  "background_color": "#2EC6FE",
   "icons": [
     {
-      "src": "season_logo512.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "orientation": "any",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "dir": "auto",
+  "lang": "en-US",
+  "name": "Weather Mood",
+  "short_name": "weather-mood",
+  "start_url": "/"
 }
