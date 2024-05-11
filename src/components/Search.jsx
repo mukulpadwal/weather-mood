@@ -2,9 +2,6 @@ import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../api/geoDBApi.js";
 
-// Note : the loadOptions prop in AsyncPaginate expects data in some ceration fromat
-// format : { options: {value: '', label: ''} };
-
 const Search = ({ onSearchChange }) => {
 
     const [search, setSearch] = useState(null);
@@ -30,8 +27,6 @@ const Search = ({ onSearchChange }) => {
         onSearchChange(searchData);
     }
 
-    // console.log(search);
-
     return (
         <AsyncPaginate 
             placeholder="Type your city"
@@ -39,6 +34,7 @@ const Search = ({ onSearchChange }) => {
             value={search}
             onChange={handleOnChange}
             loadOptions={loadOptions}
+            className="text-black font-medium"
         />
     )
 }

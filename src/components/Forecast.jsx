@@ -1,10 +1,9 @@
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Forecast = ({ forecastData }) => {
   const weekday = [
@@ -22,24 +21,23 @@ const Forecast = ({ forecastData }) => {
 
   return (
     <div className="w-full">
-      <div className="text-center font-bold text-3xl my-6">
+      <div className="text-center font-bold text-3xl my-10">
         Next 7 Days Forecast
       </div>
-      <Accordion allowZeroExpanded>
+
+      <Accordion type="single" collapsible className="w-full">
         {forecastData.list.splice(0, 7).map((forecast, idx) => {
           return (
-            <AccordionItem
-              key={idx}
-              className="mx-2 my-6 rounded-lg p-2 border"
-            >
-              <AccordionItemHeading>
-                <AccordionItemButton className="flex justify-between items-center">
+            <AccordionItem key={idx} value={`item-${idx}`} className="my-2">
+              <AccordionTrigger>
+                <div className="w-full flex flex-row items-center justify-between p-2">
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-x-2 gap-y-2">
                     <img
                       alt="weather-icon"
                       src={`icons/${forecast.weather[0].icon}.png`}
                       height={40}
                       width={40}
+                      className="rounded-full border"
                     />
                     <label className="text-sm sm:text-lg font-semibold">
                       {forecast.weather[0].description.toUpperCase()}
@@ -54,56 +52,56 @@ const Forecast = ({ forecastData }) => {
                       {Math.round(forecast.main.temp_min - 273.15)}°C
                     </label>
                   </div>
-                </AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel className="rounded-lg my-4 p-4 grid grid-cols-2 gap-4">
-                <div className="flex justify-start items-center">
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="rounded-lg my-4 p-4 grid grid-cols-2 gap-4">
+                <div className="flex flex-col sm:flex-row justify-start items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Pressure :{" "}
+                    Pressure&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">
                     {forecast.main.pressure}hPa
                   </label>
                 </div>
-                <div className="flex justify-end items-center">
+                <div className="flex flex-col sm:flex-row justify-end items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Humidity :{" "}
+                    Humidity&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">
                     {forecast.main.humidity}%
                   </label>
                 </div>
-                <div className="flex justify-start items-center">
+                <div className="flex flex-col sm:flex-row justify-start items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Clouds :{" "}
+                    Clouds&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">{forecast.clouds.all}</label>
                 </div>
-                <div className="flex justify-end items-center">
+                <div className="flex flex-col sm:flex-row justify-end items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Wind Speed :{" "}
+                    Wind Speed&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">
                     {forecast.wind.speed}m/s
                   </label>
                 </div>
-                <div className="flex justify-start items-center">
+                <div className="flex flex-col sm:flex-row justify-start items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Sea Level :{" "}
+                    Sea Level&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">
                     {forecast.main.sea_level}m
                   </label>
                 </div>
-                <div className="flex justify-end items-center">
+                <div className="flex flex-col sm:flex-row justify-end items-center">
                   <label className="textbase sm:text-lg font-bold">
-                    Feels Like :{" "}
+                    Feels Like&nbsp;:&nbsp;
                   </label>
                   <label className="text-normal">
                     {Math.round(forecast.main.feels_like - 273.15)}°C
                   </label>
                 </div>
-              </AccordionItemPanel>
+              </AccordionContent>
             </AccordionItem>
           );
         })}
