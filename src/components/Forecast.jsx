@@ -31,7 +31,7 @@ const Forecast = ({ forecastData }) => {
             <AccordionItem key={idx} value={`item-${idx}`} className="my-2">
               <AccordionTrigger>
                 <div className="w-full flex flex-row items-center justify-between p-2">
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-x-2 gap-y-2">
+                  <div className="flex flex-col sm:flex-row justify-center items-start gap-x-2 gap-y-2">
                     <img
                       alt="weather-icon"
                       src={`icons/${forecast.weather[0].icon}.png`}
@@ -40,12 +40,12 @@ const Forecast = ({ forecastData }) => {
                       className="rounded-full border"
                     />
                     <label className="text-sm sm:text-lg font-semibold">
-                      {forecast.weather[0].description.toUpperCase()}
+                      {newWeekday[idx]}
                     </label>
                   </div>
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-x-2 gap-y-2">
+                  <div className="flex flex-col sm:flex-row justify-center items-end gap-x-2 gap-y-2">
                     <label className="text-sm sm:text-lg font-semibold">
-                      {newWeekday[idx]}
+                      {forecast.weather[0].description.toUpperCase()}
                     </label>
                     <label className="text-sm sm:text-lg font-semibold">
                       {Math.round(forecast.main.temp_max - 273.15)}°C /{" "}
